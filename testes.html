@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #f5f5f5;
+        }
+
+
+
+
+
+        #new-div {
+            width: 200px;
+            height: 150px;
+            background-color: #e67e22;
+            margin: 20px;
+            border: 2px solid #d35400;
+            border-radius: 10px;
+            padding: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            position: absolute;
+            top: 10%;
+            left: 10%;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+
+
+
+    <div id="new-div">
+    </div>
+
+    <script>
+        // Tornando o painel arrastável
+        dragElement(document.getElementById("draggable-panel"));
+
+        function dragElement(elmnt) {
+            var pos1 = 0,
+                pos2 = 0,
+                pos3 = 0,
+                pos4 = 0;
+            if (document.getElementById("toolbar")) {
+                // Se existe um elemento de alça, use-o para mover o painel
+                document.getElementById("toolbar").onmousedown = dragMouseDown;
+            } else {
+                // Caso contrário, mova o painel a partir do topo
+                elmnt.onmousedown = dragMouseDown;
+            }
+
+            function dragMouseDown(e) {
+                e = e || window.event;
+                e.preventDefault();
+                // Obtenha a posição inicial do cursor
+                pos3 = e.clientX;
+                pos4 = e.clientY;
+                document.onmouseup = closeDragElement;
+                // Chame a função quando o cursor se move
+                document.onmousemove = elementDrag;
+            }
+
+            function elementDrag(e) {
+                e = e || window.event;
+                e.preventDefault();
+                // Calcule a nova posição do cursor
+                pos1 = pos3 - e.clientX;
+                pos2 = pos4 - e.clientY;
+                pos3 = e.clientX;
+                pos4 = e.clientY;
+                // Defina a nova posição do elemento
+                elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+                elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+            }
+
+            function closeDragElement() {
+                // Pare de mover quando o botão do mouse for liberado
+                document.onmouseup = null;
+                document.onmousemove = null;
+            }
+
+            // Adicionando informações dinâmicas ao #info-div
+            updateInfoDiv();
+        }
+
+        function updateInfoDiv() {
+            var infoDiv = document.getElementById("new-div");
+            var computedStyle = window.getComputedStyle(infoDiv);
+
+            var info = "<strong>Atributos da Div:</strong><br>";
+            info += "<span>Width: " + infoDiv.offsetWidth + "px</span>";
+            info += "<span>Height: " + infoDiv.offsetHeight + "px</span>";
+            info += "<span>Background-color: " + computedStyle.backgroundColor + "</span>";
+            info += "<span>Border: " + computedStyle.border + "</span>";
+            info += "<span>Border-radius: " + computedStyle.borderRadius + "</span>";
+            info += "<span>Padding: " + computedStyle.padding + "</span>";
+            info += "<span>Box-shadow: " + computedStyle.boxShadow + "</span>";
+            info += "<span>Position: " + computedStyle.position + "</span>";
+            info += "<span>Top: " + computedStyle.top + "</span>";
+            info += "<span>Left: " + computedStyle.left + "</span>";
+            info += "<span style=\"margin-bottom: 20px;\">Color: " + computedStyle.color + "</span>";
+
+            document.getElementById("panel-content").innerHTML = info;
+        }
+    </script>
+
+</body>
+
+</html>

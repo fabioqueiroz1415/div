@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barra de Ferramentas</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="infoDiv.css">
+    <script src="div.js"></script>
+    <script src="element.js"></script>
+    <script src="infoDiv.js"></script>
+    <script src="events.js"></script>
+</head>
+<body>
+
+  <div id="main-toolbar">
+    <button onclick="adicionarDiv()" id="adicionar-div">Adicionar Div</button>
+    <button onclick="mostrarInfoDiv()" id="info" disabled>Info</button>
+    <button onclick="excluirDiv()" id="excluir" disabled>Excluir</button>
+  </div>
+
+  <div id="panel">
+    <div id="toolbar-panel">
+        <span>Informações</span>
+        <button id="fechar" onclick="fecharInfo()">X</button>
+    </div>
+    <div id="panel-content">
+      <strong>testeeeeeeeeeeeee</strong>
+        <!-- Conteúdo do painel -->
+    </div>
+  </div>
+
+  <div id="content">
+      <!-- Conteúdo da página -->
+  </div>
+
+</body>
+</html>

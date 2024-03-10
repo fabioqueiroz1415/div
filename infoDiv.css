@@ -1,0 +1,89 @@
+#panel-content {
+    padding: 8px;
+    height: calc(100% - 40px);
+    overflow: auto;
+    font-size: 14px;
+}
+
+#panel-content strong {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 16px;
+}
+
+#panel-content span {
+    display: block;
+    margin-bottom: 8px;
+}
+
+#panel-content br {
+    content: "";
+    margin: 4px 0;
+}
+
+#info-div {
+    width: 100px;
+    height: 100px;
+    background-color: #3498db;
+    margin-top: 16px;
+}
+
+#toolbar-panel {
+    background-color: #5f5f5f;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+    user-select: none;
+    /* Impede a seleção de texto */
+    border-bottom: 1px solid #434343;
+    height: 20px;
+    /* Altura fixa da barra de ferramentas */
+}
+
+#panel {
+    width: 300px;
+    height: 200px;
+    min-width: 150px;
+    /* Largura mínima */
+    min-height: 100px;
+    /* Altura mínima */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    border: 2px solid #898989;
+    border-radius: 5px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    resize: both;
+    overflow: hidden;
+    z-index: 1;
+}
+
+#fechar {
+    height: 20px;
+    width: 20px;
+    background-color: #e74c3c;
+    border: none;
+    color: #fff;
+    font-size: 14px;
+    /* Tamanho do botão */
+    font-weight: bold;
+    /* Texto mais gordinho */
+    cursor: pointer;
+    padding: 1px;
+    transition: background-color 0.1s;
+    border-radius: 2px;
+}
+
+#fechar:hover {
+    background-color: #c0392b;
+    /* Vermelho mais escuro no hover */
+}
+
+#fechar:active {
+    background-color: #922b21;
+    /* Vermelho mais escuro quando clicado */
+}
