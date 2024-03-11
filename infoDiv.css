@@ -1,24 +1,39 @@
 #panel-content {
     padding: 8px;
     height: calc(100% - 40px);
-    overflow: auto;
+    overflow:scroll;
     font-size: 14px;
+    display: flex;
+    flex-direction: column;
+    user-select: none;
 }
 
-#panel-content strong {
-    display: block;
-    margin-bottom: 6px;
-    font-size: 16px;
+#panel-content > div {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
 }
 
-#panel-content span {
-    display: block;
-    margin-bottom: 8px;
+#panel-content p {
+    margin: 0;
+    padding-right: 10px; /* Adiciona um espaço à direita para melhorar a estética */
 }
 
-#panel-content br {
-    content: "";
-    margin: 4px 0;
+#panel-content input {
+    flex: 1; /* Ocupa o restante do espaço disponível */
+    padding: 5px; /* Ajuste o preenchimento conforme necessário */
+}
+
+.center, .right {
+    line-height: 200%;
+}
+
+.right {
+    width: 20%;
+    text-align: right;
+    margin-right: 10px; /* Ajuste a margem conforme necessário para melhor estética */
 }
 
 #info-div {
@@ -34,7 +49,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 12px;
+    padding: 5px;
     user-select: none;
     /* Impede a seleção de texto */
     border-bottom: 1px solid #434343;
@@ -43,21 +58,18 @@
 }
 
 #panel {
-    width: 300px;
+    width: 400px;
     height: 200px;
     min-width: 150px;
     /* Largura mínima */
     min-height: 100px;
     /* Altura mínima */
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     background-color: #fff;
     border: 2px solid #898989;
     border-radius: 5px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    resize: both;
+    resize: vertical;
     overflow: hidden;
     z-index: 1;
 }
@@ -84,6 +96,5 @@
 }
 
 #fechar:active {
-    background-color: #922b21;
-    /* Vermelho mais escuro quando clicado */
+    background-color: #992a22; /* Cor de fundo quando clicado */
 }

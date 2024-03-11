@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Barra de Ferramentas</title>
+    
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="infoDiv.css">
+
     <script src="div.js"></script>
-    <script src="element.js"></script>
     <script src="infoDiv.js"></script>
     <script src="events.js"></script>
 </head>
@@ -19,18 +20,59 @@
     <button onclick="excluirDiv()" id="excluir" disabled>Excluir</button>
   </div>
 
-  <div id="panel">
-    <div id="toolbar-panel">
-        <span>Informações</span>
-        <button id="fechar" onclick="fecharInfo()">X</button>
-    </div>
-    <div id="panel-content">
-      <strong>testeeeeeeeeeeeee</strong>
-        <!-- Conteúdo do painel -->
-    </div>
-  </div>
+
 
   <div id="content">
+    <div id="panel" style="top: 200px; left: 200px; /*visibility: hidden;*/">
+      <div id="toolbar-panel">
+          <span>Informações</span>
+          <button id="fechar" onclick="fecharInfoDiv()">X</button>
+      </div>
+
+      <div id="panel-content">
+
+        <div style="display: flex;">
+          <label class="right">Id: </label>
+          <label class="center" id="id-input" ></label>
+        </div>
+
+        <div style="display: flex;">
+          <label class="right">Top: </label>
+          <input type="text" id="top-input" />
+        </div>
+      
+        <div style="display: flex;">
+          <label class="right">Left: </label>
+          <input type="text" id="left-input" />
+        </div>
+      
+        <div style="display: flex;">
+          <label class="right">Width: </label>
+          <input type="text" id="width-input" />
+        </div>
+      
+        <div style="display: flex;">
+          <label class="right">Height: </label>
+          <input type="text" id="height-input" />
+        </div>
+      
+        <div style="display: flex;">
+          <label class="right">Border: </label>
+          <input type="text" id="border-input" />
+        </div>
+      
+        <div style="display: flex;">
+          <label class="right">Position: </label>
+          <input type="text" id="position-input" />
+        </div>
+      
+        <div style="display: flex;">
+          <label class="right">Cursor: </label>
+          <input type="text" id="cursor-input" />
+        </div>
+      </div>
+    </div>
+
       <!-- Conteúdo da página -->
   </div>
 
